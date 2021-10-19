@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from 'framer-motion';
 
 function Model({selectedImg,  setSelectedImg}) {
 
@@ -9,10 +10,14 @@ function Model({selectedImg,  setSelectedImg}) {
 }
     
     return (
-        <div className= "backdrop" onClick= {handleClick}>
-            <img src = {selectedImg} alt = "Enlarge" />
+        <motion.div className= "backdrop" onClick= {handleClick}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}>
+            <motion.img src = {selectedImg} alt = "Enlarge"
+             initial={{ y: "-100vh" }}
+             animate={{ y: 0 }} />
             
-        </div>
+        </motion.div>
     )
 }
 
